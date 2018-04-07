@@ -11,6 +11,7 @@ $(document).on "turbolinks:load", ->
 		    error: (jqXHR, textStatus, errorThrown) ->
 		      console.log("AJAX Error: #{textStatus}")
 		    success: (data, textStatus, jqXHR) ->
+		    $('form input[name="title"]').val("")
 					#$('#pay_mtc').removeAttr('disabled')
 		      console.log("Success")
 		false
