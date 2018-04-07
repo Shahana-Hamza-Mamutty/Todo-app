@@ -1,0 +1,50 @@
+<% if items.count > 0 %>
+	<% items.each do |item| %>
+		<li class="list-group-item"><span class="title"><%= item.title %></span>
+		<span style="float: right;">
+			completed
+			<label class="form-checkbox form-icon" id="<%= item.id %>">
+			<input class="checked" data-id="<%= item.id %>" type="checkbox" <%=  item.completed ? "checked" : ""%> >
+			</label>
+			<span class="glyphicon glyphicon-trash delete-item" data-id="<%= item.id %>"   style="cursor: pointer;"></span>
+		</span>
+		</li>
+	<% end %>
+<% else %>
+		<li class="list-group-item">No items added for this task</li>
+<% end %>
+
+<script type="text/javascript">
+	var list_id = $("#list_id").val()
+	console.log(list_id)
+	$(function () {
+	   $('.checked').change(function(e) {
+	       var id = $(this).data('id')
+	       $.ajax({
+		      url: '/todo_items/'+id+'/mark_completed',
+		      type: 'POST',
+		      data: {"completed": this.checked},
+		      success: function (result) {
+		        console.log("yesss")
+		     },
+		     error: function (){
+		        window.alert("something wrong!");
+		     }
+			});
+	   });
+	   $('.delete-item').click(function(e) {
+	       var id = $(this).data('id')
+	       $.ajax({
+		      url: '/todo_items/'+id,
+		      type: 'DELETE',
+		      data: {"list_id": list_id},
+		      success: function (result) {
+		        console.log("yesss")
+		     },
+		     error: function (){
+		        window.alert("something wrong!");
+		     }
+			});
+	   });
+	});
+</script>

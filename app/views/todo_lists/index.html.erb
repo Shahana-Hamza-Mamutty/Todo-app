@@ -1,0 +1,17 @@
+<div class="main_heading">
+	<span>Task Folders</span><br/>
+</div>
+<div class="center-div">
+	<div class="add-list"><%= link_to raw("<span class=\"glyphicon glyphicon-plus-sign\"><i>Add List Item</i></span>"), new_todo_list_path,class: "btn btn-info btn-sm" %></div>
+	<div class="list-group">
+		<% if @lists.count > 0 %>
+			<% @lists.each do |list| %>
+				<li class="list-group-item"><span class="title"><%= link_to list.title, todo_list_path(list)%></span><span style="float: right;"><%= link_to raw("<span class=\"glyphicon glyphicon-pencil\"></span>"), edit_todo_list_path(list), {style: 'padding-right:3px;'} %><%= link_to raw("<span class=\"glyphicon glyphicon-trash\"></span>"), todo_list_path(list), method: :delete, data: { confirm: 'Are you sure?', style: 'padding-left:3px;' }%></span></li>
+			<% end %>
+		<% else %>
+			<li class="list-group-item">No task folders created</li>
+		<% end %>
+	</div>
+</div>
+
+

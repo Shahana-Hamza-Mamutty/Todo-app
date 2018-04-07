@@ -1,0 +1,23 @@
+<div class="details">
+	<span><%= @list.title %></span><br/>
+	<span><%= @list.description%></span>
+</div>
+<div class="center-div">
+	<form id="add-task">
+	  <div class="form-row">
+	    <div class="form-group col-md-10" style="text-align: center;">
+	    	<input type="hidden" name="id" value="<%= params[:id]%>" id="list_id">
+	      	<input type="text" name="title" class="form-control input-task" placeholder="Enter a task" required="required">
+	    </div>
+	    <button type="submit" class="btn btn-info add-task">
+		  <span class="glyphicon glyphicon-plus-sign"></span> Add task
+		</button>
+	  </div>
+	</form>
+
+	<div class="list-group list-item">
+		<%= render "./todo_items/item", items: @items %>
+	</div>
+	<%= link_to 'Back', todo_lists_path, class: "btn btn-info cancel-show"%>
+</div>
+

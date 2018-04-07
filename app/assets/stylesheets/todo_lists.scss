@@ -1,3 +1,128 @@
-// Place all the styles related to the TodoLists controller here.
+// Place all the styles related to the TodoItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header-fixed {
+	background-color:#292c2f;
+	box-shadow:0 1px 1px #ccc;
+	padding: 20px 40px;
+	height: 80px;
+	color: #ffffff;
+	box-sizing: border-box;
+	top:-100px;
+
+	-webkit-transition:top 0.3s;
+	transition:top 0.3s;
+}
+
+.header-fixed .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.header-fixed-placeholder{
+	height: 80px;
+	display: none;
+}
+
+/* Logo */
+
+.header-fixed .header-limiter h1 {
+	float: left;
+	line-height: 40px;
+	margin: 0;
+}
+
+.header-fixed .header-limiter h1 span {
+	color: #5383d3;
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+	height: auto;
+}
+.center-div{
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+	height: 50%;
+	background-color: #ccc;
+	border-radius: 3px;
+	margin-top: 5%;
+}
+
+.list-group {
+	font-size: 20px;
+    font-style: italic;
+}
+
+.add_new_list {
+	padding: 2%;
+}
+
+.add-list {
+	text-align: right;
+}
+
+.title {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.list-item {
+	padding-top: 20px;
+}
+
+.input-task {
+	margin-top: 8px;
+}
+.add-task {
+	margin-top: 8px;
+}
+
+.details, .main_heading {
+    border-radius: 25px;
+    width: 50%;
+    height: 100px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 2% 0px 0px 25%;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #00000061;
+    text-align: center;
+    padding: 1%;
+    font-size: 25px;
+    color: #5bc0de;
+}
+
+.main_heading {
+	height: 70px !important;
+}
+
+.cancel {
+	float: right;
+    margin-top: -30px;
+}
+
+.cancel-show {
+	margin-left: 86%;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    background: #5bc0de;
+    border: none;
+}
+
+.alert-info {
+    background-color: #f7d9d9;
+    border-color: #e41a1a;
+    color: #e41a1a;
+}
