@@ -1,7 +1,7 @@
 class TodoListsController < ApplicationController
 
   def index
-    @lists = TodoList.all
+    @lists = TodoList.all.order("created_at desc")
   end
 
   def new
@@ -39,7 +39,7 @@ class TodoListsController < ApplicationController
 
   def show
     @list = TodoList.find_by_id(params[:id])
-    @items = @list.todo_items if @list
+    @items = @list.todo_items.order('created_at desc') if @list
   end
 
   def destroy

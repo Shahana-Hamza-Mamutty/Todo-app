@@ -3,7 +3,7 @@ class TodoItemsController < ApplicationController
   def create
     list = TodoList.find(params[:id])
     list.todo_items.create(title:params[:title])
-    @items = list.todo_items
+    @items = list.todo_items.order('created_at desc')
     respond_to do |format|
         format.js
     end
